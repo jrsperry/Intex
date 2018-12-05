@@ -165,6 +165,7 @@
     <Compile Include="gmailer.cs" />
     <Compile Include="Models\Assays.cs" />
     <Compile Include="Models\AssayTypes.cs" />
+    <Compile Include="Models\Compounds.cs" />
     <Compile Include="Models\Customers.cs" />
     <Compile Include="Models\Employees.cs" />
     <Compile Include="Models\SpecificTests.cs" />
