@@ -166,9 +166,14 @@
     <Compile Include="Models\Assays.cs" />
     <Compile Include="Models\AssayTypes.cs" />
     <Compile Include="Models\Compounds.cs" />
+    <Compile Include="Models\CompoundSamples.cs" />
     <Compile Include="Models\Customers.cs" />
     <Compile Include="Models\Employees.cs" />
+    <Compile Include="Models\Materials.cs" />
+    <Compile Include="Models\MaterialsList.cs" />
     <Compile Include="Models\SpecificTests.cs" />
+    <Compile Include="Models\TestEmployees.cs" />
+    <Compile Include="Models\TestType.cs" />
     <Compile Include="Models\WorkOrders.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
