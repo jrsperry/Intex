@@ -239,6 +239,9 @@
     <Content Include="Views\AssayTypes\Index.cshtml" />
     <Content Include="Views\Home\Login.cshtml" />
     <Content Include="Views\Home\SignUp.cshtml" />
+    <Content Include="Views\Home\MyWorkOrders.cshtml" />
+    <Content Include="Views\Home\WorkOrderAssays.cshtml" />
+    <Content Include="Views\Home\AssayTests.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
