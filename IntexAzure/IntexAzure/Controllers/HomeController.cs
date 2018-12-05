@@ -12,6 +12,8 @@ namespace IntexAzure.Controllers
     public class HomeController : Controller
     {
         private IntexContext db = new IntexContext();
+        private static string currentUserName;
+        private static string currentPassword;
 
         public ActionResult Index()
         {
@@ -59,6 +61,8 @@ namespace IntexAzure.Controllers
                 if (string.Equals(username, LoginID.First().UserName) && (string.Equals(password, LoginID.First().Password)))
                 {
                     FormsAuthentication.SetAuthCookie(username, rememberMe);
+                    currentUserName = username;
+                    currentPassword = password;
 
                     return RedirectToAction("Index", "Home");
                 }
@@ -73,6 +77,8 @@ namespace IntexAzure.Controllers
             else if (string.Equals(username, "admin") && (string.Equals(password, "admin")))  
             {
                 FormsAuthentication.SetAuthCookie(username, rememberMe);
+                currentUserName = username;
+                currentPassword = password;
 
                 return RedirectToAction("Index", "Home");
             }
@@ -128,8 +134,68 @@ namespace IntexAzure.Controllers
             return View(customers);
         }
 
+        [Authorize]
+        public ActionResult MyWorkOrders()
+        {
+          
+            var currentUserID =
+                 db.Database.SqlQuery<Customers>(
+                    "Select * " +
+                    "FROM Customers " +
+                    "WHERE UserName = '" + currentUserName + "' AND " +
+                    "Password = '" + currentPassword + "'");
+
+            if (currentUserID.Count() > 0)
+            {
+
+                int test = currentUserID.First().CustID;
+
+                var myWorkOrders =
+                     db.Database.SqlQuery<WorkOrders>(
+                        "Select * " +
+                        "FROM WorkOrders " +
+                        "WHERE CustID = " + test);
+                
+                if (myWorkOrders.Count() > 0)
+                {
+                return View(myWorkOrders.ToList());
+                }
+                else
+                {
+                    return View("Index");
+                }
+            }
+
+            else
+            {
+                return View("Login");
+            }
+        }
 
 
+        public ActionResult WorkOrderAssays(int id)
+        {
+            var currentAssays =
+                 db.Database.SqlQuery<Assays>(
+                    "Select * " +
+                    "FROM Assays " +
+                    "WHERE WorkOrderID = " + id);
+
+
+            return View(currentAssays.ToList());
+        }
+
+        public ActionResult AssayTests(int id)
+        {
+            var currentTests =
+                 db.Database.SqlQuery<SpecificTests>(
+                    "Select * " +
+                    "FROM SpecificTests " +
+                    "WHERE AssayID = " + id);
+
+
+            return View(currentTests.ToList());
+        }
 
     }
 }

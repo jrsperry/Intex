@@ -24,7 +24,6 @@ namespace IntexAzure.Models
         public string OrderDiscounts { get; set; }
 
         public int CustID { get; set; }
-
         public virtual Customers Customers { get; set; }
     }
 }
