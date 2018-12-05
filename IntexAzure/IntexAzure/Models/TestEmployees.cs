@@ -10,6 +10,9 @@ namespace IntexAzure.Models
     [Table("TestEmployees")]
     public class TestEmployees
     {
+        [Key]
+        public int TestEmployeesID { get; set; }
+
         public int EmployeeID { get; set; }
 
         public int CompoundTestID { get; set; }
