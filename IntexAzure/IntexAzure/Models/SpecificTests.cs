@@ -15,7 +15,7 @@ namespace IntexAzure.Models
 
         public int AssayID { get; set; }
 
-        public int TestID { get; set; }
+        public int TestTypeID { get; set; }
 
         public string QuantitativeResults { get; set; }
 
