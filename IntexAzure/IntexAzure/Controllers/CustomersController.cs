@@ -22,6 +22,19 @@ namespace IntexAzure.Controllers
             return View(customer.ToList());
         }
 
+        public ActionResult ViewWorkOrders(int custID, string custName)
+        {
+            IEnumerable<CustomerWorkOrders> WorkOrderResults = db.Database.SqlQuery<CustomerWorkOrders>(
+                "SELECT  CustID, OrderDueDate, OrderRushed, OrderStatus, OrderCreationDate, OrderDiscounts, WorkOrderID " +
+                "FROM WorkOrders " +
+                "WHERE CustID = " + custID
+                );
+
+
+            ViewBag.CustomerName = custName;
+            return View(WorkOrderResults);
+        }
+
         // GET: Customers/Details/5
         public ActionResult Details(int? id)
         {
