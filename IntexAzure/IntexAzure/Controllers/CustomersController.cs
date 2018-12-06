@@ -29,7 +29,7 @@ namespace IntexAzure.Controllers
                 "FROM WorkOrders " +
                 "WHERE CustID = " + custID
                 );
-
+            
 
             ViewBag.CustomerName = custName;
             return View(WorkOrderResults);
