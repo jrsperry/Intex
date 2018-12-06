@@ -23,6 +23,8 @@ namespace IntexAzure.Models
 
         public int MaterialsListID { get; set; }
 
+        public int HoursNeeded { get; set; }
+
 
     }
 }
