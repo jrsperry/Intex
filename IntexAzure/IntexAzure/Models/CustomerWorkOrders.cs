@@ -1,17 +1,16 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Web;
 
 namespace IntexAzure.Models
 {
-    [Table("WorkOrders")]
-    public class WorkOrders
+    public class CustomerWorkOrders
     {
+
         [Key]
-        public int WorkOrderID { get; set; } 
+        public int WorkOrderID { get; set; }
 
         public DateTime OrderDueDate { get; set; }
 
@@ -24,6 +23,5 @@ namespace IntexAzure.Models
         public string OrderDiscounts { get; set; }
 
         public int CustID { get; set; }
-        public virtual Customers Customers { get; set; }
     }
 }

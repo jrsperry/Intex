@@ -168,6 +168,7 @@
     <Compile Include="Models\Compounds.cs" />
     <Compile Include="Models\CompoundSamples.cs" />
     <Compile Include="Models\Customers.cs" />
+    <Compile Include="Models\CustomerWorkOrders.cs" />
     <Compile Include="Models\Employees.cs" />
     <Compile Include="Models\Materials.cs" />
     <Compile Include="Models\MaterialsList.cs" />
@@ -182,6 +183,7 @@
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\login.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -236,6 +238,12 @@
     <Content Include="Views\AssayTypes\Details.cshtml" />
     <Content Include="Views\AssayTypes\Edit.cshtml" />
     <Content Include="Views\AssayTypes\Index.cshtml" />
+    <Content Include="Views\Home\Login.cshtml" />
+    <Content Include="Views\Home\SignUp.cshtml" />
+    <Content Include="Views\Home\MyWorkOrders.cshtml" />
+    <Content Include="Views\Home\WorkOrderAssays.cshtml" />
+    <Content Include="Views\Home\AssayTests.cshtml" />
+    <Content Include="Views\Customers\ViewWorkOrders.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

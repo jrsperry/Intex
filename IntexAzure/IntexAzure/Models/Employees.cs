@@ -16,5 +16,6 @@ namespace IntexAzure.Models
         public string EmpName { get; set; }
 
         public string EmpPosition { get; set; }
+
     }
 }

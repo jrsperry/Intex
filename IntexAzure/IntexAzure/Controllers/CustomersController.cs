@@ -22,6 +22,19 @@ namespace IntexAzure.Controllers
             return View(customer.ToList());
         }
 
+        public ActionResult ViewWorkOrders(int custID, string custName)
+        {
+            IEnumerable<CustomerWorkOrders> WorkOrderResults = db.Database.SqlQuery<CustomerWorkOrders>(
+                "SELECT  CustID, OrderDueDate, OrderRushed, OrderStatus, OrderCreationDate, OrderDiscounts, WorkOrderID " +
+                "FROM WorkOrders " +
+                "WHERE CustID = " + custID
+                );
+
+
+            ViewBag.CustomerName = custName;
+            return View(WorkOrderResults);
+        }
+
         // GET: Customers/Details/5
         public ActionResult Details(int? id)
         {
@@ -49,7 +62,7 @@ namespace IntexAzure.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "CustID,CustName,CustAddress1,CustAddress2,CustCity,CustState,CustZip,CustEmail,CustPaymentInfo,EmpID")] Customers customers)
+        public ActionResult Create([Bind(Include = "CustID,CustName,CustAddress1,CustAddress2,CustCity,CustState,CustZip,CustEmail,CustPhone,CustPaymentInfo,EmpID,UserName,Password")] Customers customers)
         {
             if (ModelState.IsValid)
             {
@@ -83,7 +96,7 @@ namespace IntexAzure.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "CustID,CustName,CustAddress1,CustAddress2,CustCity,CustState,CustZip,CustEmail,CustPaymentInfo,EmpID")] Customers customers)
+        public ActionResult Edit([Bind(Include = "CustID,CustName,CustAddress1,CustAddress2,CustCity,CustState,CustZip,CustEmail,CustPhone,CustPaymentInfo,EmpID,UserName,Password")] Customers customers)
         {
             if (ModelState.IsValid)
             {

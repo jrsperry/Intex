@@ -32,8 +32,12 @@ namespace IntexAzure.Models
         public string CustPaymentInfo { get; set; }
 
         public int? EmpID { get; set; }
-
         public virtual Employees Employees { get; set; }
+
+        public string UserName { get; set; }
+
+        public string Password { get; set; }
+
 
     }
 
